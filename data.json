@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "giyok",
         "name_kr": "기역",
         "hangul": "ㄱ",
@@ -11,6 +12,7 @@
         "isVowel": false
     },
     {
+        "id": 2,
         "name": "ssang giyok",
         "name_kr": "쌍기역",
         "hangul": "ㄲ",
@@ -20,6 +22,7 @@
         "isVowel": false
     },
     {
+        "id": 3,
         "name": "nieun",
         "name_kr": "니은",
         "hangul": "ㄴ",
@@ -29,6 +32,7 @@
         "isVowel": false
     },
     {
+        "id": 4,
         "name": "digeut",
         "name_kr": "디귿",
         "hangul": "ㄷ",
@@ -40,6 +44,7 @@
         "isVowel": false
     },
     {
+        "id": 5,
         "name": "ssang digeut",
         "name_kr": "쌍디귿",
         "hangul": "ㄸ",
@@ -49,6 +54,7 @@
         "isVowel": false
     },
     {
+        "id": 6,
         "name": "rieul",
         "name_kr": "리을",
         "hangul": "ㄹ",
@@ -60,6 +66,7 @@
         "isVowel": false
     },
     {
+        "id": 7,
         "name": "mieum",
         "name_kr": "미음",
         "hangul": "ㅁ",
@@ -71,6 +78,7 @@
         "isVowel": false
     },
     {
+        "id": 8,
         "name": "bieup",
         "name_kr": "비읍",
         "hangul": "ㅂ",
@@ -82,6 +90,7 @@
         "isVowel": false
     },
     {
+        "id": 9,
         "name": "ssang bieup",
         "name_kr": "쌍비읍",
         "hangul": "ㅃ",
@@ -91,6 +100,7 @@
         "isVowel": false
     },
     {
+        "id": 10,
         "name": "siot",
         "name_kr": "시옷",
         "hangul": "ㅅ",
@@ -102,6 +112,7 @@
         "isVowel": false
     },
     {
+        "id": 11,
         "name": "ssang siot",
         "name_kr": "쌍시옷",
         "hangul": "ㅆ",
@@ -113,6 +124,7 @@
         "isVowel": false
     },
     {
+        "id": 12,
         "name": "ieung",
         "name_kr": "이응",
         "hangul": "ㅇ",
@@ -124,6 +136,7 @@
         "isVowel": false
     },
     {
+        "id": 13,
         "name": "jieut",
         "name_kr": "지읒",
         "hangul": "ㅈ",
@@ -135,6 +148,7 @@
         "isVowel": false
     },
     {
+        "id": 14,
         "name": "ssang jieut",
         "name_kr": "쌍지읒",
         "hangul": "ㅉ",
@@ -146,6 +160,7 @@
         "isVowel": false
     },
     {
+        "id": 15,
         "name": "chieut",
         "name_kr": "치읓",
         "hangul": "ㅊ",
@@ -157,6 +172,7 @@
         "isVowel": false
     },
     {
+        "id": 16,
         "name": "kieuk",
         "name_kr": "키읔",
         "hangul": "ㅋ",
@@ -166,6 +182,7 @@
         "isVowel": false
     },
     {
+        "id": 17,
         "name": "tieut",
         "name_kr": "티읕",
         "hangul": "ㅌ",
@@ -177,6 +194,7 @@
         "isVowel": false
     },
     {
+        "id": 18,
         "name": "pieup",
         "name_kr": "피읖",
         "hangul": "ㅍ",
@@ -188,6 +206,7 @@
         "isVowel": false
     },
     {
+        "id": 19,
         "name": "hieut",
         "name_kr": "히읕",
         "hangul": "ㅎ",
@@ -199,6 +218,7 @@
         "isVowel": false
     },
     {
+        "id": 20,
         "name": "ah",
         "hangul": "ㅏ",
         "pronounciation": [
@@ -207,6 +227,7 @@
         "isVowel": true
     },
     {
+        "id": 21,
         "name": "uh",
         "hangul": "ㅓ",
         "pronounciation": [
@@ -215,6 +236,7 @@
         "isVowel": true
     },
     {
+        "id": 22,
         "name": "oh",
         "hangul": "ㅗ",
         "pronounciation": [
@@ -223,6 +245,7 @@
         "isVowel": true
     },
     {
+        "id": 23,
         "name": "oo",
         "hangul": "ㅜ",
         "pronounciation": [
@@ -231,6 +254,7 @@
         "isVowel": true
     },
     {
+        "id": 24,
         "name": "uh",
         "hangul": "ㅡ",
         "pronounciation": [
@@ -239,6 +263,7 @@
         "isVowel": true
     },
     {
+        "id": 25,
         "name": "ee",
         "hangul": "ㅣ",
         "pronounciation": [
@@ -247,6 +272,7 @@
         "isVowel": true
     },
     {
+        "id": 26,
         "name": "ae",
         "hangul": "ㅐ",
         "pronounciation": [
@@ -255,6 +281,7 @@
         "isVowel": true
     },
     {
+        "id": 27,
         "name": "eh",
         "hangul": "ㅔ",
         "pronounciation": [
@@ -263,6 +290,7 @@
         "isVowel": true
     },
     {
+        "id": 28,
         "name": "yah",
         "hangul": "ㅑ",
         "pronounciation": [
@@ -271,6 +299,7 @@
         "isVowel": true
     },
     {
+        "id": 29,
         "name": "yuh",
         "hangul": "ㅕ",
         "pronounciation": [
@@ -279,6 +308,7 @@
         "isVowel": true
     },
     {
+        "id": 30,
         "name": "yoh",
         "hangul": "ㅛ",
         "pronounciation": [
@@ -287,6 +317,7 @@
         "isVowel": true
     },
     {
+        "id": 31,
         "name": "yoo",
         "hangul": "ㅠ",
         "pronounciation": [
@@ -295,6 +326,7 @@
         "isVowel": true
     },
     {
+        "id": 32,
         "name": "yae",
         "hangul": "ㅒ",
         "pronounciation": [
@@ -303,6 +335,7 @@
         "isVowel": true
     },
     {
+        "id": 33,
         "name": "yeh",
         "hangul": "ㅖ",
         "pronounciation": [
@@ -311,6 +344,7 @@
         "isVowel": true
     },
     {
+        "id": 34,
         "name": "wah",
         "hangul": "ㅘ",
         "pronounciation": [
@@ -319,6 +353,7 @@
         "isVowel": true
     },
     {
+        "id": 35,
         "name": "wae",
         "hangul": "ㅙ",
         "pronounciation": [
@@ -327,6 +362,7 @@
         "isVowel": true
     },
     {
+        "id": 36,
         "name": "wuh",
         "hangul": "ㅝ",
         "pronounciation": [
@@ -335,6 +371,7 @@
         "isVowel": true
     },
     {
+        "id": 37,
         "name": "weh",
         "hangul": "ㅞ",
         "pronounciation": [
@@ -343,6 +380,7 @@
         "isVowel": true
     },
     {
+        "id": 38,
         "name": "weh",
         "hangul": "ㅚ",
         "pronounciation": [
@@ -351,6 +389,7 @@
         "isVowel": true
     },
     {
+        "id": 39,
         "name": "wee",
         "hangul": "ㅟ",
         "pronounciation": [
@@ -359,6 +398,7 @@
         "isVowel": true
     },
     {
+        "id": 40,
         "name": "uey",
         "hangul": "ㅢ",
         "pronounciation": [
