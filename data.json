@@ -1,0 +1,369 @@
+[
+    {
+        "name": "giyok",
+        "name_kr": "기역",
+        "hangul": "ㄱ",
+        "pronounciation": [
+            "k (kite)",
+            "g (ghost)",
+            "k (walk)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ssang giyok",
+        "name_kr": "쌍기역",
+        "hangul": "ㄲ",
+        "pronounciation": [
+            "g (gone)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "nieun",
+        "name_kr": "니은",
+        "hangul": "ㄴ",
+        "pronounciation": [
+            "n (now)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "digeut",
+        "name_kr": "디귿",
+        "hangul": "ㄷ",
+        "pronounciation": [
+            "t (talk)",
+            "d (mind)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ssang digeut",
+        "name_kr": "쌍디귿",
+        "hangul": "ㄸ",
+        "pronounciation": [
+            "d (dog)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "rieul",
+        "name_kr": "리을",
+        "hangul": "ㄹ",
+        "pronounciation": [
+            "r (run)",
+            "r (run)",
+            "l (real)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "mieum",
+        "name_kr": "미음",
+        "hangul": "ㅁ",
+        "pronounciation": [
+            "m (mop)",
+            "m (mop)",
+            "m (hum)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "bieup",
+        "name_kr": "비읍",
+        "hangul": "ㅂ",
+        "pronounciation": [
+            "p (pool)",
+            "b (bay)",
+            "p (lap)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ssang bieup",
+        "name_kr": "쌍비읍",
+        "hangul": "ㅃ",
+        "pronounciation": [
+            "b (bird)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "siot",
+        "name_kr": "시옷",
+        "hangul": "ㅅ",
+        "pronounciation": [
+            "s (show)",
+            "s (show)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ssang siot",
+        "name_kr": "쌍시옷",
+        "hangul": "ㅆ",
+        "pronounciation": [
+            "s (sun)",
+            "s (sun)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ieung",
+        "name_kr": "이응",
+        "hangul": "ㅇ",
+        "pronounciation": [
+            "silent",
+            "silent",
+            "ng (ring)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "jieut",
+        "name_kr": "지읒",
+        "hangul": "ㅈ",
+        "pronounciation": [
+            "ch (chop)",
+            "j (jar)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ssang jieut",
+        "name_kr": "쌍지읒",
+        "hangul": "ㅉ",
+        "pronounciation": [
+            "j (jim)",
+            "j (jim)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "chieut",
+        "name_kr": "치읓",
+        "hangul": "ㅊ",
+        "pronounciation": [
+            "ch (itch)",
+            "ch (itch)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "kieuk",
+        "name_kr": "키읔",
+        "hangul": "ㅋ",
+        "pronounciation": [
+            "kh (khaki)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "tieut",
+        "name_kr": "티읕",
+        "hangul": "ㅌ",
+        "pronounciation": [
+            "t (tip)",
+            "t (tip)",
+            "t (hot)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "pieup",
+        "name_kr": "피읖",
+        "hangul": "ㅍ",
+        "pronounciation": [
+            "p (pit)",
+            "p (pit)",
+            "p (lap)"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "hieut",
+        "name_kr": "히읕",
+        "hangul": "ㅎ",
+        "pronounciation": [
+            "h (hot)",
+            "h (hot)",
+            "silent"
+        ],
+        "isVowel": false
+    },
+    {
+        "name": "ah",
+        "hangul": "ㅏ",
+        "pronounciation": [
+            "ah (rah)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "uh",
+        "hangul": "ㅓ",
+        "pronounciation": [
+            "uh (run)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "oh",
+        "hangul": "ㅗ",
+        "pronounciation": [
+            "oh (dough)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "oo",
+        "hangul": "ㅜ",
+        "pronounciation": [
+            "oo (moon)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "uh",
+        "hangul": "ㅡ",
+        "pronounciation": [
+            "uh (brook)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "ee",
+        "hangul": "ㅣ",
+        "pronounciation": [
+            "ee (meek)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "ae",
+        "hangul": "ㅐ",
+        "pronounciation": [
+            "ae (at)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "eh",
+        "hangul": "ㅔ",
+        "pronounciation": [
+            "eh (met)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "yah",
+        "hangul": "ㅑ",
+        "pronounciation": [
+            "yah (yawn)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "yuh",
+        "hangul": "ㅕ",
+        "pronounciation": [
+            "yuh (yum)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "yoh",
+        "hangul": "ㅛ",
+        "pronounciation": [
+            "yoh (yodel)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "yoo",
+        "hangul": "ㅠ",
+        "pronounciation": [
+            "yoo (view)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "yae",
+        "hangul": "ㅒ",
+        "pronounciation": [
+            "yae (yak)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "yeh",
+        "hangul": "ㅖ",
+        "pronounciation": [
+            "yeh (yes)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "wah",
+        "hangul": "ㅘ",
+        "pronounciation": [
+            "wah (wand)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "wae",
+        "hangul": "ㅙ",
+        "pronounciation": [
+            "wae (wax)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "wuh",
+        "hangul": "ㅝ",
+        "pronounciation": [
+            "wuh (wonder)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "weh",
+        "hangul": "ㅞ",
+        "pronounciation": [
+            "weh (web)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "weh",
+        "hangul": "ㅚ",
+        "pronounciation": [
+            "weh (wait)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "wee",
+        "hangul": "ㅟ",
+        "pronounciation": [
+            "wee (week)"
+        ],
+        "isVowel": true
+    },
+    {
+        "name": "uey",
+        "hangul": "ㅢ",
+        "pronounciation": [
+            "uey (muey)"
+        ],
+        "isVowel": true
+    }
+]
