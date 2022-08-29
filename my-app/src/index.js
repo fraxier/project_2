@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './css/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { Button, createTheme, ThemeProvider } from '@mui/material';
+import { orange } from '@mui/material/colors';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: orange[500]
+    }
+  }
+})
+
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
