@@ -3,4 +3,4 @@
 ## Resources:
 
 ### Hangul
-[https://zkorean.com/hangul/appearance]https://zkorean.com/hangul/appearance
+[https://zkorean.com/hangul/appearance](https://zkorean.com/hangul/appearance)
