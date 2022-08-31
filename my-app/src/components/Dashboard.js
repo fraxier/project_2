@@ -31,6 +31,34 @@ export default function Dashboard({ user }) {
         console.log(event)
         setSliderValue(event.target.value);
     }
+    const handleButtonClick = (event) => {
+
+        fetch('https://api.jsonbin.io/v3/b/630f6cf2e13e6063dc93ed7b', {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO'
+            },
+            body: JSON.stringify({
+                "john": {
+                    "01092022-12:20:25": [
+                        { "1": true },
+                        { "2": false },
+                        { "3": false },
+                        { "4": true },
+                        { "5": false },
+                        { "6": true },
+                        { "7": false },
+                        { "8": true }
+                    ]
+                }
+            })
+        }).then(res => {
+            const response = res.json();
+            console.log(response);
+            return response;
+        }).then(obj => console.log(obj))
+    }
 
     return (
         <>
@@ -42,13 +70,13 @@ export default function Dashboard({ user }) {
                         </Typography>   
                         <Typography variant="body2">
                             Thank you for trying my flashcard learning app, ㅋuㅋu!<br/>
-                            It's pronounced Fufu and it uses the hangul commonly used to denote 'lol' in Korean chat.<br/>
-                            I thought it looked like a backwards 'F' so I decided to think of a fun words that starts with 'F', in the hopes of discovering a name for the app!<br/>
-                            <Typography fontStyle={'italic'} sx={{ my: 1 }}>
+                            It's pronounced Fufu and it uses the hangul commonly used to denote 'lol' in Korean.<br/>
+                            I thought it looked like a backwards 'F' so I decided to think of fun words that start with 'F', in the hopes of discovering a name for the app!<br/>
+                            <Typography fontStyle={'italic'} component='b' sx={{ my: 1 }}>
                                 Something short and sweet, like a laugh or chuckle...
                             </Typography>
-                            That's when I vaguely remembered the existence of a Japanese onomatopoeia for chuckle, <Typography display={'inline'} fontWeight="bold" variant="body2">fufu! </Typography>
-                            <Typography variant='subtitle2' color='primary'>Please go ahead and use the box to the right to get started with your practice!</Typography>
+                            That's when I vaguely remembered the existence of a Japanese onomatopoeia for chuckle, <Typography display={'inline'} component='b' fontWeight="bold" variant="body2">fufu! </Typography>
+                            <Typography variant='subtitle2' component='b' color='primary'>Please go ahead and use the box to the right to get started with your practice!</Typography>
                         </Typography>
                     </Paper>
                     <Paper sx={{ flexGrow: 1, px: 5, py: 4 }}>
@@ -100,7 +128,7 @@ export default function Dashboard({ user }) {
                                     min={1}
                                     max={max}
                                 />
-                                <Button color="secondary" variant='contained'>
+                                <Button color="secondary" variant='contained' onClick={handleButtonClick}>
                                     <Typography>
                                         Let's practice {sliderValue} hangul!
                                     </Typography>
