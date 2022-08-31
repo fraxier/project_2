@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 
 export default function Logo({ variant, xs, md, flex}) {
   
@@ -7,8 +7,6 @@ export default function Logo({ variant, xs, md, flex}) {
     <Typography
       variant={variant}
       noWrap
-      component="a"
-      href="/"
       sx={{
         mr: 2,
         flexGrow: {flex},
@@ -20,7 +18,10 @@ export default function Logo({ variant, xs, md, flex}) {
         textDecoration: "none",
       }}
     >
-      ㅋUㅋU
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+        ㅋUㅋU
+      </Link>
+      
     </Typography>
   );
 }

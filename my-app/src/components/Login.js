@@ -42,7 +42,7 @@ export default function Login({ setUser }) {
         return;
       }
       await PostUsername(username, results);
-      // setUser(username);
+      setUser(username);
     }
   }
 
