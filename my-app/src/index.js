@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './css/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import { Button, createTheme, ThemeProvider } from '@mui/material';
-import { orange } from '@mui/material/colors';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { purple } from '@mui/material/colors';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: orange[500]
+      main: purple[500]
     }
   }
 })
@@ -19,7 +20,9 @@ const theme = createTheme({
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );

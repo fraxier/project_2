@@ -1,10 +1,9 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import img from "../imgs/logo-white-32x32.png";
 
-export default function Logo({variant, xs, md, flex=0}) {
+export default function Logo({ variant, xs, md, flex}) {
   
-    return (
+  return (
     <Typography
       variant={variant}
       noWrap
@@ -21,12 +20,7 @@ export default function Logo({variant, xs, md, flex=0}) {
         textDecoration: "none",
       }}
     >
-      <img
-        src={img}
-        alt="fufu logo"
-        style={{ height: "32px", marginRight: "7px" }}
-      />
-      FUFU
+      ㅋUㅋU
     </Typography>
   );
 }
