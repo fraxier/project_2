@@ -7,18 +7,6 @@ import React, { useState } from 'react';
 
 const illegalChars = `,./<>?;':"[]\\{}|\` `
 
-const HtmlTooltip = styled(({ className, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
-  },
-}));
-
 const CheckUsername = async (name) => {
 
     console.log(`Checking: ${name}`);
@@ -28,21 +16,25 @@ const CheckUsername = async (name) => {
       headers: {
         'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO'
       }
-    })
-      .then(response => response.json());
+    }).then(response => response.json());
 
     return results
 }
 
-const PostUsername = async (name) => {
+const PostUsername = async (name, results) => {
 
   return fetch('https://api.jsonbin.io/v3/b/630eddeee13e6063dc934483', {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO',
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({"username": name})
+    body: JSON.stringify(
+        {"users": [
+          ...results.record.users,
+          {"username": name}
+        ]}
+      )
   }).then(response => {
     const res = response.json();
     console.log(res)
@@ -78,7 +70,7 @@ export default function Login({ setUser }) {
       setUsernameTaken(false);
       const results = await CheckUsername(username);
       console.log(results)
-      const hasDuplicate = !!(results.record.find(item => item.username.toLowerCase() === username.toLowerCase()))
+      const hasDuplicate = !!(results.record.users.find(item => item.username.toLowerCase() === username.toLowerCase()))
       console.log(hasDuplicate);
 
       if (hasDuplicate) {
@@ -87,7 +79,7 @@ export default function Login({ setUser }) {
         setUsernameTaken(true)
         return;
       }
-      await PostUsername(username);
+      await PostUsername(username, results);
       // setUser(username);
     }
   }
