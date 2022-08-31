@@ -4,7 +4,7 @@ import './css/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { purple } from '@mui/material/colors';
+import { blue, blueGrey, brown, deepOrange, green, grey, purple, yellow } from '@mui/material/colors';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +13,14 @@ const theme = createTheme({
   palette: {
     primary: {
       main: purple[500]
+    },
+    secondary: {
+      main: blue[800]
+    }
+  },
+  typography: {
+    body2: {
+      letterSpacing: '0.025em'
     }
   }
 })

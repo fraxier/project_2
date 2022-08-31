@@ -9,9 +9,7 @@ import Navbar from './Navbar';
 import Stats from './Stats';
 
 function App() {
-	const [user, setUser] = useState('');
-
-
+	const [user, setUser] = useState('francis');
 
 	return (
 		<div className='App'>
@@ -24,7 +22,7 @@ function App() {
           </> 
           }
           {user && <>
-            <Route path='/' element={<Dashboard />} />
+            <Route path='/' element={<Dashboard user={user} />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='hangul' element={<Hangul />} />
             <Route path='stats' element={<Stats />} />

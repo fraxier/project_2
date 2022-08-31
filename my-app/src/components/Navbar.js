@@ -55,7 +55,7 @@ export default function Navbar({ user }) {
 							{user && pages.map((page) => (
 								<MenuItem key={page} onClick={handleCloseNavMenu}>
 									<Typography textAlign='center'>
-										<Link to={`/${page.toLowerCase()}`} style={{ textDecoration: 'none', color: 'white' }}>
+										<Link to={`/${page.toLowerCase()}`} style={{ textDecoration: 'none', color: purple[500] }}>
 											{page}
 										</Link>
 									</Typography>
@@ -112,7 +112,7 @@ export default function Navbar({ user }) {
 							onClose={handleCloseUserMenu}>
 							{settings.map((setting) => (
 								<MenuItem key={setting} onClick={handleCloseUserMenu}>
-									<Typography textAlign='center'>{setting}</Typography>
+									<Typography textAlign='center'>{setting} - BETA</Typography>
 								</MenuItem>
 							))}
 						</Menu>
