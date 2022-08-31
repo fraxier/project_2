@@ -7,44 +7,6 @@ import React, { useState } from 'react';
 
 const illegalChars = `,./<>?;':"[]\\{}|\` `
 
-const CheckUsername = async (name) => {
-
-    console.log(`Checking: ${name}`);
-
-    const results = await fetch('https://api.jsonbin.io/v3/b/630eddeee13e6063dc934483', {
-      method: 'GET',
-      headers: {
-        'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO'
-      }
-    }).then(response => response.json());
-
-    return results
-}
-
-const PostUsername = async (name, results) => {
-
-  return fetch('https://api.jsonbin.io/v3/b/630eddeee13e6063dc934483', {
-    method: 'PUT',
-    headers: {
-      'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO',
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(
-        {"users": [
-          ...results.record.users,
-          {"username": name}
-        ]}
-      )
-  }).then(response => {
-    const res = response.json();
-    console.log(res)
-    return res;
-  }).then(obj => {
-    console.log(obj);
-  })
-
-}
-
 export default function Login({ setUser }) {
 	const [username, setUsername] = useState('');
   const [label, setLabel] = useState('username');
@@ -124,4 +86,41 @@ export default function Login({ setUser }) {
 			</Paper>
 		</Box>
 	);
+}
+
+const CheckUsername = async (name) => {
+
+  console.log(`Checking: ${name}`);
+
+  const results = await fetch('https://api.jsonbin.io/v3/b/630eddeee13e6063dc934483', {
+    method: 'GET',
+    headers: {
+      'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO'
+    }
+  }).then(response => response.json());
+
+  return results
+}
+
+const PostUsername = async (name, results) => {
+
+return fetch('https://api.jsonbin.io/v3/b/630eddeee13e6063dc934483', {
+  method: 'PUT',
+  headers: {
+    'X-Master-Key': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO',
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(
+      {"users": [
+        ...results.record.users,
+        {"username": name}
+      ]}
+    )
+}).then(response => {
+  const res = response.json();
+  console.log(res)
+  return res;
+}).then(obj => {
+  console.log(obj);
+})
 }
