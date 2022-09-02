@@ -9,10 +9,54 @@ import Navbar from './Navbar';
 import Practice from './Practice';
 import Stats from './Stats';
 
+const testData = [
+    {
+      "id": 1,
+      "name": "giyok",
+      "name_kr": "기역",
+      "hangul": "ㄱ",
+      "pronounciation": [
+        "k (kite)",
+        "g (ghost)",
+        "k (walk)"
+      ],
+      "isVowel": false
+    },
+    {
+      "id": 2,
+      "name": "ssang giyok",
+      "name_kr": "쌍기역",
+      "hangul": "ㄲ",
+      "pronounciation": [
+        "g (gone)"
+      ],
+      "isVowel": false
+    },
+    {
+      "id": 26,
+      "name": "ae",
+      "hangul": "ㅐ",
+      "pronounciation": [
+        "ae (at)"
+      ],
+      "isVowel": true
+    },
+    {
+      "id": 27,
+      "name": "eh",
+      "hangul": "ㅔ",
+      "pronounciation": [
+        "eh (met)"
+      ],
+      "isVowel": true
+    },
+	]
+
+
 function App() {
-	const [user, setUser] = useState('');
-	const [practiceSession, setPracticeSession] = useState();
-  const [hangul, setHangul] = useState()
+	const [user, setUser] = useState({ username: "Francis", id: 1});
+  const [hangul, setHangul] = useState(testData)
+	const [sessionData, setSessionData] = useState(hangul);
 
 	return (
 		<div className='App'>
@@ -27,11 +71,11 @@ function App() {
 					)}
 					{user && (
 						<>
-							<Route path='/' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setPracticeSession={setPracticeSession} />} />
-							<Route path='dashboard' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setPracticeSession={setPracticeSession} />} />
+							<Route path='/' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setSessionData={setSessionData} />} />
+							<Route path='dashboard' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setSessionData={setSessionData} />} />
 							<Route path='hangul' element={<Hangul hangul={hangul}/>} />
 							<Route path='stats' element={<Stats hangul={hangul}/>} />
-							{practiceSession && <Route path='practice' element={<Practice session={practiceSession} user={user} />} />}
+							{sessionData && <Route path='practice' element={<Practice sessionData={sessionData} user={user} />} />}
 							<Route path='*' element={<Error404 />} />
 						</>
 					)}

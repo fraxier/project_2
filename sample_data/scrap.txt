@@ -158,3 +158,40 @@
     "correct": 0,
     "wrong": 0
 }
+
+  // const getChoices = (answer, i) => {
+  //   console.log('getting choices for ' + i)
+  //   const choices = [answer];
+  //   const candidates = [...sessionData]
+  //     .sort(() => 0.5 - Math.random())
+  //     .slice(0, 3);
+
+  //   candidates.forEach((item) => {
+  //     choices.push(item.pronounciation[i]);
+  //   });
+  // };
+
+  // const setupQuestion = () => {
+  //   q.hangul = sessionData[index];
+  //   console.log('seting up question')
+  //   if (q.hangul.isVowel) {
+  //     q.vowelAnswer = q.hangul.pronounciation[0];
+  //     q.vowelChoices = getChoices(q.vowelAnswer, 0);
+
+  //   } else {
+  //     q.startAnswer = q.hangul.pronounciation[0];
+  //     q.startChoices = getChoices(q.startAnswer, 0);
+
+  //     q.syllableAnswer = q.hangul.pronounciation[1];
+  //     q.syllableChoices = getChoices(q.syllableAnswer, 1);
+
+  //     q.endAnswer = q.hangul.pronounciation[2];
+  //     q.endChoices = getChoices(q.endAnswer, 2);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   setupQuestion();
+  // }, [index]);
+
+  // console.log(q)

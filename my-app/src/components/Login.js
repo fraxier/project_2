@@ -6,6 +6,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import React, { useState } from 'react';
 
 const illegalChars = `,./<>?;':"[]\\{}|\` `;
+const jsonURL = 'http://localhost:3001';
 
 export default function Login({ setUser }) {
 	const [username, setUsername] = useState('');
@@ -41,7 +42,7 @@ export default function Login({ setUser }) {
 				return;
 			}
 			const user = await PostUsername(username);
-      setUser(user);
+      		setUser(user);
 		}
 	};
 
@@ -78,21 +79,27 @@ export default function Login({ setUser }) {
 
 const CheckUsername = async (name) => {
 	console.log(`Checking: ${name}`);
-
-	const results = await fetch(`http://localhost:3000/users?username=${name}`, {
+	const results = await fetch(`${jsonURL}/users?username=${name}`, {
 		method: 'GET',
-	}).then((response) => response.json());
+	}).then((response) => {
+		const res = response.json();
+		console.log(res);
+		return res;
+	})
+	  .catch(error => {
+		console.log(error);
+	  });
 
 	return results;
 };
 
 const PostUsername = async (name) => {
-	return fetch('http://localhost:3000/users', {
+	return fetch(`${jsonURL}/users`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ username: name  }),
+		body: JSON.stringify({ "username": name  }),
 	})
 		.then((response) => {
 			const res = response.json();
