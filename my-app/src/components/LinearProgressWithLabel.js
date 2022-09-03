@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 function LinearProgressWithLabel(props) {
-  console.log(props.mb)
+  
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', mb: props.mb }}>
       <Box sx={{ width: '100%', mr: 1 }}>

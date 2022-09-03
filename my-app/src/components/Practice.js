@@ -1,10 +1,15 @@
 import { LinearProgress, Paper, Typography, Button, Container, Box, ToggleButtonGroup, ToggleButton, Chip, Tooltip } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router';
 import ColorToggleButton from './ColorToggleButton';
 import LinearWithValueLabel from './LinearProgressWithLabel';
+import date from 'date-and-time'
 
 export default function Practice({ hangul, sessionData, user }) {
-	function getChoices(answer, i, isVowel) {
+	const navigate = useNavigate();
+  
+  
+  function getChoices(answer, i, isVowel) {
 		const choices = [answer];
 		const candidates = isVowel ? hangul.filter((item) => item.isVowel) : hangul.filter((item) => !item.isVowel);
 
@@ -20,7 +25,20 @@ export default function Practice({ hangul, sessionData, user }) {
 
 		if (index >= sessionData.length) {
 			// handle session complete screen!
-			console.log('Practice is finished and your stats have been updated!');
+			console.log('Practice is finished and your stats are being updated!');
+      performance.current.date = date.format(new Date(), 'ddd, MMM DD YYYY @ HH:mm:ss')
+      console.log(performance)
+			fetch('http://localhost:3001/sessions', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(performance.current),
+			})
+				.then((res) => res.json())
+				.then((obj) => console.log(obj));
+      console.log('submitting data')
+      navigate('/dashboard?practiced=1')
 		}
 
 		const curHangul = sessionData[index];
@@ -41,7 +59,7 @@ export default function Practice({ hangul, sessionData, user }) {
 		};
 	}
 
-	const [performance, setPerformance] = useState([]);
+	const performance = useRef({userID: user.id, data: [], date: ''});
 	const [question, setQuestion] = useState(getNextQuestion(-1));
 
 	const [startAnswer, setStartAnswer] = useState('');
@@ -50,10 +68,18 @@ export default function Practice({ hangul, sessionData, user }) {
 	const [vowelAnswer, setVowelAnswer] = useState('');
 
 	const [progress, setProgress] = useState(0);
-
 	const part = (1 / sessionData.length) * 100;
 
-  console.log(progress, ' - ' , part)
+  // reset all states to default on first page render
+  useEffect(() => {
+    performance.current = {userID: user.id, data: [], date: ''}
+    setQuestion(getNextQuestion(-1))
+    setStartAnswer('')
+    setSyllableAnswer('')
+    setEndAnswer('')
+    setVowelAnswer('')
+    setProgress(0)
+  }, [])
 
 	const submitHandler = (event) => {
 		if (question.hangul.isVowel) {
@@ -68,24 +94,24 @@ export default function Practice({ hangul, sessionData, user }) {
 
 		const record = {};
 		if (question.hangul.isVowel) {
+			record.hid = question.hangul.id;
 			record.correct = vowelAnswer === question.vowelAnswer ? 1 : 0;
-			record.hangul = question.hangul.id;
 			setVowelAnswer(''); // reset answer
 		} else {
 			// first check if score is 100% otherwise if one correct indicate half mark otherwise none correct is 0
+			record.hid = question.hangul.id;
 			record.correct =
 				startAnswer === question.startAnswer && syllableAnswer === question.syllableAnswer && endAnswer === question.endAnswer
 					? 1
 					: startAnswer === question.startAnswer || syllableAnswer === question.syllableAnswer || endAnswer === question.endAnswer
 					? 0.5
 					: 0;
-			record.hangul = question.hangul.id;
 			setStartAnswer(''); // reset answers
 			setSyllableAnswer('');
 			setEndAnswer('');
 		}
-    setProgress(progress + part)
-		setPerformance([...performance, record]);
+		setProgress(progress + part);
+		performance.current.data.push(record);
 		setQuestion(getNextQuestion(question.index));
 	};
 
@@ -93,7 +119,7 @@ export default function Practice({ hangul, sessionData, user }) {
 		<Paper elevation={5} sx={{ py: 7, px: 7, height: 600 }}>
 			<Container>
 				{/* <LinearProgress sx={{ borderRadius: 2, height: 7, mb: 4 }} variant='buffer' value={progress} valueBuffer={progress + part} color='secondary' /> */}
-        <LinearWithValueLabel value={progress} valueBuffer={progress + part} color='secondary' sx={{ borderRadius: 2, height: 7 }} mb={4} />
+				<LinearWithValueLabel value={progress} valueBuffer={progress + part} color='secondary' sx={{ borderRadius: 2, height: 7 }} mb={4} />
 				<Paper elevation={3} sx={{ px: 8, py: 7, textAlign: 'center' }}>
 					<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 						{question.hangul.isVowel && (

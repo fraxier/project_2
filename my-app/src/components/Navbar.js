@@ -23,7 +23,7 @@ export default function Navbar({ user }) {
 		setAnchorElUser(null);
 	};
 
-	const pages = ['Dashboard', 'Hangul', 'Stats'];
+	const pages = ['Dashboard', 'Hangul', 'History'];
 	const settings = ['Profile'];
 
 	return (

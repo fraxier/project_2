@@ -94,7 +94,7 @@ const CheckUsername = async (name) => {
 };
 
 const PostUsername = async (name) => {
-	return fetch(`${jsonURL}/users`, {
+	const user = await fetch(`${jsonURL}/users`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -105,9 +105,12 @@ const PostUsername = async (name) => {
 			const res = response.json();
 			console.log(res);
 			return res;
-		})
-		.then((obj) => {
-			console.log(obj);
-      return obj;
 		});
+  // return fetch(`${jsonURL}/stats`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({})
+  // })
 };

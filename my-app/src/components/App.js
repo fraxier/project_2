@@ -7,7 +7,7 @@ import Hangul from './Hangul';
 import Login from './Login';
 import Navbar from './Navbar';
 import Practice from './Practice';
-import Stats from './Stats';
+import History from './History';
 
 const testData = [
   {
@@ -494,9 +494,9 @@ function App() {
 					{user && (
 						<>
 							<Route path='/' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setSessionData={setSessionData} />} />
-							<Route path='dashboard' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setSessionData={setSessionData} />} />
-							<Route path='hangul' element={<Hangul hangul={hangul}/>} />
-							<Route path='stats' element={<Stats hangul={hangul}/>} />
+							<Route path='/dashboard' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setSessionData={setSessionData} />} />
+							<Route path='/hangul' element={<Hangul hangul={hangul} user={user} />} />
+							<Route path='/history' element={<History hangul={hangul} user={user} />} />
 							{sessionData && <Route path='practice' element={<Practice hangul={hangul} sessionData={sessionData} user={user} />} />}
 							<Route path='*' element={<Error404 />} />
 						</>
