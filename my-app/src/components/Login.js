@@ -106,11 +106,4 @@ const PostUsername = async (name) => {
 			console.log(res);
 			return res;
 		});
-  // return fetch(`${jsonURL}/stats`, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({})
-  // })
 };

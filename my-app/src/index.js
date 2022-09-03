@@ -12,7 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[500]
+      main: purple[500],
+      lighter: purple[200]
     },
     secondary: {
       main: deepPurple[500]
