@@ -1,25 +1,28 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { Box } from '@mui/material';
 
-export default function ColorToggleButton() {
-  const [alignment, setAlignment] = React.useState('web');
-
+export default function ColorToggleButton({ setAnswer, mx, choices, value }) {
+  const [alignment, setAlignment] = useState('');
+  
   const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
+    if (newAlignment !== null) {
+      setAnswer(newAlignment)
+    }
   };
-
   return (
     <ToggleButtonGroup
       color="primary"
-      value={alignment}
+      value={value}
       exclusive
       onChange={handleChange}
       aria-label="Platform"
+      sx={{ mx: mx }}
     >
-      <ToggleButton value="web">Web</ToggleButton>
-      <ToggleButton value="android">Android</ToggleButton>
-      <ToggleButton value="ios">iOS</ToggleButton>
+      <ToggleButton value={choices[0]}>{choices[0]}</ToggleButton>
+      <ToggleButton value={choices[1]}>{choices[1]}</ToggleButton>
+      <ToggleButton value={choices[2]}>{choices[2]}</ToggleButton>
     </ToggleButtonGroup>
   );
 }

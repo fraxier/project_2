@@ -4,7 +4,7 @@ import './css/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { blue, blueGrey, brown, deepOrange, green, grey, purple, yellow } from '@mui/material/colors';
+import { blue, blueGrey, brown, deepOrange, deepPurple, green, grey, purple, yellow } from '@mui/material/colors';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +15,7 @@ const theme = createTheme({
       main: purple[500]
     },
     secondary: {
-      main: blue[800]
+      main: deepPurple[500]
     }
   },
   typography: {
@@ -26,13 +26,13 @@ const theme = createTheme({
 })
 
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ThemeProvider>
-  </React.StrictMode>
+  </React.Fragment>
 );
 
 // If you want to start measuring performance in your app, pass a function

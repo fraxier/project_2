@@ -17,6 +17,8 @@
         "name_kr": "쌍기역",
         "hangul": "ㄲ",
         "pronounciation": [
+            "g (gone)",
+            "g (gone)",
             "g (gone)"
         ],
         "isVowel": false
@@ -27,6 +29,8 @@
         "name_kr": "니은",
         "hangul": "ㄴ",
         "pronounciation": [
+            "n (now)",
+            "n (now)",
             "n (now)"
         ],
         "isVowel": false
@@ -49,6 +53,8 @@
         "name_kr": "쌍디귿",
         "hangul": "ㄸ",
         "pronounciation": [
+            "d (dog)",
+            "d (dog)",
             "d (dog)"
         ],
         "isVowel": false
@@ -95,6 +101,8 @@
         "name_kr": "쌍비읍",
         "hangul": "ㅃ",
         "pronounciation": [
+            "b (bird)",
+            "b (bird)",
             "b (bird)"
         ],
         "isVowel": false
@@ -177,6 +185,8 @@
         "name_kr": "키읔",
         "hangul": "ㅋ",
         "pronounciation": [
+            "kh (khaki)",
+            "kh (khaki)",
             "kh (khaki)"
         ],
         "isVowel": false
