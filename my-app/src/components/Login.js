@@ -22,7 +22,9 @@ export default function Login({ setUser }) {
 		} else {
 			if (error) setError(false) || setLabel('username');
 			setUsernameTaken(false);
-			setUsername(event.target.value);
+      const lowerCase = event.target.value.toLowerCase()
+      const titleCase = lowerCase ? (lowerCase[0].toUpperCase() + lowerCase.slice(1)) : event.target.value
+			setUsername(titleCase);
 		}
 	};
 
@@ -78,7 +80,8 @@ export default function Login({ setUser }) {
 }
 
 const CheckUsername = async (name) => {
-	console.log(`Checking: ${name}`);
+
+  console.log(`Checking: ${name}`);
 	const results = await fetch(`${jsonURL}/users?username=${name}`, {
 		method: 'GET',
 	}).then((response) => {
