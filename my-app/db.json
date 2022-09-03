@@ -82,35 +82,80 @@
   ],
   "sessions": [
     {
-      "id": 1,
       "data": [
         {
           "hid": 1,
-          "correct": true
+          "correct": 1
+        },
+        {
+          "hid": 2,
+          "correct": 1
+        },
+        {
+          "hid": 26,
+          "correct": 1
+        },
+        {
+          "hid": 27,
+          "correct": 1
         }
-      ]
+      ],
+      "date": "Sat, Sep 03 2022 @22:04:07",
+      "id": 3,
+      "userID": 1
     },
     {
       "data": [
         {
-          "hid": 1,
-          "correct": false
+          "hid": 25,
+          "correct": 1
+        },
+        {
+          "hid": 2,
+          "correct": 0.5
+        },
+        {
+          "hid": 5,
+          "correct": 0
+        },
+        {
+          "hid": 6,
+          "correct": 0
+        },
+        {
+          "hid": 40,
+          "correct": 1
+        },
+        {
+          "hid": 32,
+          "correct": 1
         }
       ],
-      "id": 2
+      "date": "Sun, Sep 04 2022 @01:53:40",
+      "id": 4,
+      "userID": 1
     }
   ],
-  "stats": {
-    "2": [
-      {
-        "id": 1,
-        "date": "01092022",
-        "hid": 1,
-        "wrongCount": 23,
-        "correctCount": 42
-      }
-    ]
-  },
+  "stats": [
+    {
+      "id": 1,
+      "userID": 1,
+      "data": [
+        {
+          "hid": 1,
+          "wrongCount": 23,
+          "halfCount": 55,
+          "correctCount": 42
+        },
+        {
+          "hid": 3,
+          "wrongCount": 52,
+          "halfCount": 12,
+          "correctCount": 4
+        }
+      ]
+    }
+  ],
   "hangul": [
     {
       "id": 1,
