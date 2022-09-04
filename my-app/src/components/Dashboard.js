@@ -12,34 +12,34 @@ export default function Dashboard({ user, setSessionData, setHangul, hangul, pra
 	const [params, setParams] = useSearchParams();
 	const navigate = useNavigate();
 
-	// useEffect(()=> {
-	//   fetch('https://api.jsonbin.io/v3/b/630c3059e13e6063dc9067d2?meta=false', {
-	//     method: 'GET',
-	//     headers: {
-	//       'X-MASTER-KEY': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO'
-	//     }
-	//   }).then(response => {
-	//     const res = response.json();
-	//     console.log(res);
-	//     return res;
-	//   }).then(obj => {
-	//     console.log(obj)
-	//     setHangul(obj.hangul);
-	//   })
-	// }, [])
+	useEffect(()=> {
+	  fetch('https://api.jsonbin.io/v3/b/630c3059e13e6063dc9067d2?meta=false', {
+	    method: 'GET',
+	    headers: {
+	      'X-MASTER-KEY': '$2b$10$Rjvmn7PaK51qkUKCqg1l5uYHjdC4Wo.Sft4njUYdx.KAX9HClFVnO'
+	    }
+	  }).then(response => {
+	    const res = response.json();
+	    console.log(res);
+	    return res;
+	  }).then(obj => {
+	    console.log(obj)
+	    setHangul(obj.hangul);
+	  })
+	}, [])
 
-	useEffect(() => {
-		if (!!hangul) return;
-		console.log('fetching hangul!');
+	// useEffect(() => {
+	// 	if (!!hangul) return;
+	// 	console.log('fetching hangul!');
 
-		fetch(`${jsonURL}/hangul`)
-			.then((response) => {
-				return response.json();
-			})
-			.then((obj) => {
-				setHangul(obj);
-			});
-	}, []);
+	// 	fetch(`${jsonURL}/hangul`)
+	// 		.then((response) => {
+	// 			return response.json();
+	// 		})
+	// 		.then((obj) => {
+	// 			setHangul(obj);
+	// 		});
+	// }, []);
 
 	const handleRadioChange = (event) => {
 		const limitSlider = (limit) => {
@@ -83,10 +83,10 @@ export default function Dashboard({ user, setSessionData, setHangul, hangul, pra
 					<Typography color={'primary'} variant='h4' sx={{ mb: 2 }}>
 						Welcome {user.username}!
 					</Typography>
-					<Typography variant='body2'>
+					<Typography variant='body1' lineHeight={2}>
 						Thank you for trying my flashcard learning app, ㅋuㅋu!
 						<br />
-						It's pronounced Fufu and it uses the hangul commonly used to denote 'lol' in Korean.
+						It's pronounced Fufu and it uses the hangul used to write 'lol' in Korean.
 						<br />
 						I thought it looked like a backwards 'F' so I decided to think of fun words that start with 'F', in the hopes of discovering a name for the app!
 						<br />
@@ -101,6 +101,11 @@ export default function Dashboard({ user, setSessionData, setHangul, hangul, pra
 							Please go ahead and use the box to the right to get started with your practice!
 						</Typography>
 					</Typography>
+          <Typography variant='body2'>
+            Korean is written using consonants and vowels, depending on whether the consonant is the start of a word or syllable it may have a different pronounciation or sound.
+            Similarly the pronounciation may be different if the consonant is at the end of a word or syllable.
+            Nouns have only one pronounciation.
+          </Typography>
 				</Paper>
 				<Paper sx={{ flexGrow: 1, px: 5, py: 4 }}>
 					<Typography color='secondary' variant='h6'>

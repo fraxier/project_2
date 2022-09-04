@@ -20,27 +20,34 @@ export default function Practice({ hangul, sessionData, user }) {
 		});
 		return choices.sort(() => 0.5 - Math.random());
 	}
-	function getNextQuestion(curIndex) {
-		const index = ++curIndex;
+  function handleExit() {
+    console.log('Practice is finished and your stats are being updated!');
+    performance.current.date = date.format(new Date(), 'ddd, MMM DD YYYY @ HH:mm:ss')
+    console.log(performance)
+
+    // only save data to json server if user has practiced at least 1 hangul!
+    if (performance.current.data.length >= 1) {
+      fetch('http://localhost:3001/sessions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(performance.current),
+      })
+      .then((res) => res.json())
+      .then((obj) => console.log(obj));
+      console.log('submitting data')
+    }
+    navigate('/dashboard?practiced=1')
+  }
+  function getNextQuestion(curIndex) {
+      const index = ++curIndex;
 
 		if (index >= sessionData.length) {
 			// handle session complete screen!
-			console.log('Practice is finished and your stats are being updated!');
-      performance.current.date = date.format(new Date(), 'ddd, MMM DD YYYY @ HH:mm:ss')
-      console.log(performance)
-			fetch('http://localhost:3001/sessions', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(performance.current),
-			})
-				.then((res) => res.json())
-				.then((obj) => console.log(obj));
-      console.log('submitting data')
-      navigate('/dashboard?practiced=1')
+			handleExit()
 		}
-
+    if (index >= sessionData.length) index = 0
 		const curHangul = sessionData[index];
 		return {
 			index: index,
@@ -172,7 +179,7 @@ export default function Practice({ hangul, sessionData, user }) {
 					</Box>
 				</Paper>
 				<Box sx={{ display: 'flex', my: 3 }}>
-					<Button size='medium' variant='contained' color='info'>
+					<Button onClick={handleExit} size='medium' variant='contained' color='info'>
 						Save & Quit
 					</Button>
 				</Box>

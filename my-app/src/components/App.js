@@ -8,6 +8,7 @@ import Login from './Login';
 import Navbar from './Navbar';
 import Practice from './Practice';
 import History from './History';
+import Session from './Session';
 
 const testData = [
   {
@@ -476,9 +477,9 @@ const full = [
 
 
 function App() {
-	const [user, setUser] = useState({ username: "Francis", id: 1});
-  const [hangul, setHangul] = useState(full)
-	const [sessionData, setSessionData] = useState(testData);
+	const [user, setUser] = useState();
+  const [hangul, setHangul] = useState()
+	const [sessionData, setSessionData] = useState();
 
 	return (
 		<div className='App'>
@@ -497,6 +498,7 @@ function App() {
 							<Route path='/dashboard' element={<Dashboard user={user} setHangul={setHangul} hangul={hangul} setSessionData={setSessionData} />} />
 							<Route path='/hangul' element={<Hangul hangul={hangul} user={user} />} />
 							<Route path='/history' element={<History hangul={hangul} user={user} />} />
+              <Route path='/history/:id' element={<Session hangul={hangul} user={user}/>} />
 							{sessionData && <Route path='practice' element={<Practice hangul={hangul} sessionData={sessionData} user={user} />} />}
 							<Route path='*' element={<Error404 />} />
 						</>

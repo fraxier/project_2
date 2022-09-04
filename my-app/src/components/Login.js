@@ -1,9 +1,9 @@
-import { Alert, LinearProgress, Paper, TextField, Tooltip, tooltipClasses, Typography } from '@mui/material';
+import { Alert, Backdrop, Button, Card, LinearProgress, Paper, TextField, Tooltip, tooltipClasses, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { Box } from '@mui/system';
+import { Box, Container } from '@mui/system';
 import HelpIcon from '@mui/icons-material/Help';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const illegalChars = `,./<>?;':"[]\\{}|\` `;
 const jsonURL = 'http://localhost:3001';
@@ -14,6 +14,8 @@ export default function Login({ setUser }) {
 	const [error, setError] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [usernameTaken, setUsernameTaken] = useState(false);
+  const [open, setOpen] = useState(false);
+  const duplicate = useRef();
 
 	const usernameHandler = (event) => {
 		if (illegalChars.includes(event.nativeEvent.data)) {
@@ -38,6 +40,8 @@ export default function Login({ setUser }) {
 			console.log(hasDuplicate);
 
 			if (hasDuplicate) {
+        duplicate.current = results[0];
+        setOpen(true)
 				setError(true);
 				setIsLoading(false);
 				setUsernameTaken(true);
@@ -48,8 +52,27 @@ export default function Login({ setUser }) {
 		}
 	};
 
+  const handleExistingUser = async (flag) => {
+    
+    if (flag) setUser(duplicate.current)
+    setOpen(false)
+  }
+
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, mt: 10 }}>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <Card sx={{ p:5 }}>
+          <Typography textAlign='center'>Username exists</Typography>
+          <Typography textAlign='center'>Do you want to login in as {username}?</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', pt: 3}}>
+            <Button onClick={() => handleExistingUser(true)} color='secondary' variant='contained'>Yes</Button>
+            <Button onClick={() => handleExistingUser(false)} color='secondary' variant='contained' sx={{ ml: 2 }}>No</Button>
+          </Box>
+        </Card>
+      </Backdrop>
 			<Typography variant='h4' textAlign={'center'}>
 				Welcome!
 			</Typography>
@@ -109,4 +132,5 @@ const PostUsername = async (name) => {
 			console.log(res);
 			return res;
 		});
+    return user;
 };

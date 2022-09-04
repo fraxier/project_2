@@ -2,108 +2,18 @@
   "users": [
     {
       "id": 1,
-      "username": "Francis",
-      "stats": 1
+      "username": "Francis"
     },
     {
       "id": 2,
-      "username": "Steve",
-      "sessions": [
-        {
-          "sessionId": 1
-        },
-        {
-          "sessionId": 2
-        },
-        {
-          "sessionId": 3
-        },
-        {
-          "sessionId": 4
-        }
-      ]
+      "username": "Steve"
     },
     {
       "username": "Xavier",
       "id": 3
-    },
-    {
-      "username": "xavier",
-      "id": 4
-    },
-    {
-      "username": "awdfawf",
-      "id": 5
-    },
-    {
-      "username": "gwpoj",
-      "id": 6
-    },
-    {
-      "username": "jth",
-      "id": 7
-    },
-    {
-      "username": "grwg",
-      "id": 8
-    },
-    {
-      "username": "eknrg",
-      "id": 9
-    },
-    {
-      "username": "gregegerg",
-      "id": 10
-    },
-    {
-      "username": "hiknrh",
-      "id": 11
-    },
-    {
-      "username": "asd",
-      "id": 12
-    },
-    {
-      "username": "wge",
-      "id": 13
-    },
-    {
-      "username": "asdfe",
-      "id": 14
-    },
-    {
-      "username": "grwe",
-      "id": 15
-    },
-    {
-      "username": "asdwq",
-      "id": 16
     }
   ],
   "sessions": [
-    {
-      "data": [
-        {
-          "hid": 1,
-          "correct": 1
-        },
-        {
-          "hid": 2,
-          "correct": 1
-        },
-        {
-          "hid": 26,
-          "correct": 1
-        },
-        {
-          "hid": 27,
-          "correct": 1
-        }
-      ],
-      "date": "Sat, Sep 03 2022 @22:04:07",
-      "id": 3,
-      "userID": 1
-    },
     {
       "data": [
         {
@@ -134,6 +44,17 @@
       "date": "Sun, Sep 04 2022 @01:53:40",
       "id": 4,
       "userID": 1
+    },
+    {
+      "userID": 3,
+      "data": [
+        {
+          "hid": 22,
+          "correct": 1
+        }
+      ],
+      "date": "Sun, Sep 04 2022 @ 22:41:22",
+      "id": 5
     }
   ],
   "stats": [
