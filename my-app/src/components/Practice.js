@@ -27,7 +27,14 @@ export default function Practice({ hangul, sessionData, user }) {
 
     // only save data to json server if user has practiced at least 1 hangul!
     if (performance.current.data.length >= 1) {
-      fetch('http://localhost:3001/sessions', {
+      savePerformance();
+      saveStats();
+    }
+    navigate('/dashboard?practiced=1')
+  }
+
+  async function savePerformance() {
+    fetch('http://localhost:3001/sessions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,11 +42,103 @@ export default function Practice({ hangul, sessionData, user }) {
         body: JSON.stringify(performance.current),
       })
       .then((res) => res.json())
-      .then((obj) => console.log(obj));
+      .then((obj) => console.log(obj))
+      .catch((err) => console.log(err));
       console.log('submitting data')
-    }
-    navigate('/dashboard?practiced=1')
   }
+
+  async function saveStats() {
+    fetch('http://localhost:3001/stats?userID=' + user.id)
+      .then((res) => res.json())
+      .then(results => {
+        
+        let url = 'http://localhost:3001/stats/'
+        let method = 'POST'
+        const jsonBody = { userID: user.id }
+        if (results.length > 0) {
+          jsonBody.data = parsePerformance(results[0].data)
+          method = 'PUT'
+          url += results[0].id
+        } else {
+          jsonBody.data = parsePerformance();
+        }
+        fetch(url, {
+          method: method,
+          headers : {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(jsonBody)
+        }).then(res => res.json())
+          .then(obj => console.log(obj))
+      })
+  }
+
+  function parsePerformance(results = []) {
+    debugger;
+    const data = [];
+    // situation where there are no stats yet
+    if (results.length < 1) {
+      performance.current.data.forEach(practice => {
+        data.push(createStatFromPerformance(practice.hid, practice.correct))
+      })
+    // situation where there are stats
+    } else {
+      console.log(results)
+      data.push(...mergeStats(results))
+    }
+    return data
+  }
+
+  function mergeStats(results) {
+    const stats = []
+    const existingIDs = []
+    debugger;
+    // for each hangul practiced this session put them into the stats array
+    performance.current.data.forEach(result => {
+      stats.push(createStatFromPerformance(result.hid, result.correct))
+      existingIDs.push(result.hid)
+    })
+    
+    // for each hangul already retrieved from the JSON server
+    // if already been practiced this session update its counts
+    // otherwise just push it back into the stats array
+    results.forEach(result => {
+      if (existingIDs.includes(result.hid)) {
+        const stat = stats.splice(stats.findIndex(s => s.hid === result.hid), 1)
+        stats.push(createStatFromRecord(stat[0], result))
+      } else {
+        stats.push(result)
+      }
+    })
+    return stats
+  }
+
+  function createStatFromRecord(stat, result) {
+    stat.correctCount += result.correctCount
+    stat.wrongCount += result.wrongCount
+    stat.halfCount += result.halfCount
+    return stat
+  }
+
+  function createStatFromPerformance(id, correct) {
+    const record = { hid: id }
+    record.wrongCount = correct === 0 ? 1 : 0
+    record.halfCount = correct === 0.5 ? 1 : 0
+    record.correctCount = correct === 1 ? 1 : 0
+    switch(correct) {
+      case 0:
+        record.wrongCount = 1
+        break;
+      case 0.5:
+        record.halfCount = 1
+        break
+      case 1:
+        record.correctCount = 1
+    }
+    return record
+  }
+
+
   function getNextQuestion(curIndex) {
       const index = ++curIndex;
 
@@ -47,10 +146,10 @@ export default function Practice({ hangul, sessionData, user }) {
 			// handle session complete screen!
 			handleExit()
 		}
-    if (index >= sessionData.length) index = 0
+    
 		const curHangul = sessionData[index];
 		return {
-			index: index,
+			index: index >= sessionData.length ? 0 : index,
 			hangul: curHangul,
 			startChoices: !curHangul.isVowel && getChoices(curHangul.pronounciation[0], 0, false),
 			startAnswer: !curHangul.isVowel && curHangul.pronounciation[0],
